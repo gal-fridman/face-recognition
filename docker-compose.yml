@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  face-recognition:
+    build:
+      context: "."
+      dockerfile: face-recognition
+    environment:
+      - PORT=8080
+      - GOOGLE_APPLICATION_CREDENTIALS=/service_accounts/mackathon-team-c-8ee597408a92.json
+    ports:
+      - "8080:8080"
+    container_name: test
+    volumes:
+      - type: bind
+        source: .
+        target: .
